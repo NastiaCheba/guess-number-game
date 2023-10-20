@@ -34,12 +34,12 @@ document.querySelector('.check').addEventListener('click', function () {
 
   // When there is nothing in the input field
   if (!guess) {
-    displayMessage('⛔ Не цифра!');
+    displayMessage('⛔ Not a number!');
 
     // When player wins
   } else if (guess === secretNumber) {
     document.querySelector('.number').textContent = secretNumber;
-    displayMessage('🎉 Ура! Правильно!');
+    displayMessage('🎉 Yay! Correct!');
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
     if (score > highScore) {
@@ -48,13 +48,11 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   } else if (guess !== secretNumber) {
     if (score > 1) {
-      displayMessage(
-        guess > secretNumber ? '📈 Слишком большое!' : '📉 Слишком маленькое!'
-      );
+      displayMessage(guess > secretNumber ? '📈 Too big!' : '📉 Too small!');
       score--;
       document.querySelector('.score').textContent = score;
     } else {
-      displayMessage('😭 Вы проиграли');
+      displayMessage('😭 You lost!');
       document.querySelector('.score').textContent = 0;
     }
   }
@@ -79,7 +77,7 @@ document.querySelector('.again').addEventListener('click', function () {
 
   document.querySelector('.number').textContent = '?';
   document.querySelector('.score').textContent = score;
-  displayMessage('Начать угадывать...');
+  displayMessage('Start guessing...');
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
   document.querySelector('.guess').value = '';
